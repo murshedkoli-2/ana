@@ -1,0 +1,607 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-kling-bg text-kling-text;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.dashboard input,
+.dashboard textarea {
+  @apply border-kling-bg3 bg-kling-bg2 text-kling-text placeholder:text-kling-text3 outline-none;
+}
+
+.dashboard input:focus,
+.dashboard textarea:focus {
+  @apply border-kling-primary ring-1 ring-kling-primary;
+}
+
+.kling-page, .kling-page *::before, .kling-page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.kling-page {
+  --bg: #080b14;
+  --bg2: #0c1020;
+  --bg3: #111827;
+  --card: #0f1424;
+  --card-border: rgba(255,255,255,0.06);
+  --card-hover: rgba(255,255,255,0.03);
+  --primary: #6c47ff;
+  --primary-glow: rgba(108,71,255,0.3);
+  --accent: #a855f7;
+  --cyan: #06b6d4;
+  --green: #10b981;
+  --red: #ef4444;
+  --yellow: #f59e0b;
+  --text: #f0f4ff;
+  --text2: #94a3b8;
+  --text3: #64748b;
+  --radius: 14px;
+  --radius-sm: 8px;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.kling-page .header {
+  position: relative;
+  padding: 0 0 3.5rem;
+  overflow: hidden;
+}
+
+.kling-page .header-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 55% at 50% -15%, rgba(108,71,255,0.35) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 35% at 80% 25%, rgba(6,182,212,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.kling-page .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.kling-page .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.kling-page .logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 0 18px var(--primary-glow);
+}
+
+.kling-page .logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.kling-page .logo-accent { color: var(--primary); }
+
+.kling-page .nav-links {
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.kling-page .nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.kling-page .nav-links a:hover { color: var(--text); }
+
+.kling-page .nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  z-index: 20;
+}
+
+.kling-page .nav-toggle:hover { background: rgba(255,255,255,0.05); }
+
+.kling-page .hero {
+  text-align: center;
+  padding: 2.5rem 1.5rem 0.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+.kling-page .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(108,71,255,0.12);
+  border: 1px solid rgba(108,71,255,0.25);
+  color: #c4b5fd;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+  animation: klingFadeDown 0.5s ease both;
+}
+
+.kling-page .hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 1rem;
+  animation: klingFadeDown 0.6s ease both;
+}
+
+.kling-page .gradient-text {
+  background: linear-gradient(135deg, #a78bfa, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kling-page .hero-sub {
+  color: var(--text2);
+  font-size: 1rem;
+  max-width: 580px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  animation: klingFadeDown 0.7s ease both;
+}
+
+.kling-page .hero-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.8rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 0.85rem 2rem;
+  animation: klingFadeDown 0.8s ease both;
+}
+
+.kling-page .stat { display: flex; flex-direction: column; align-items: center; }
+.kling-page .stat-num { font-family: 'Outfit', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--primary); line-height: 1; }
+.kling-page .stat-label { font-size: 0.7rem; color: var(--text3); margin-top: 0.2rem; font-weight: 500; letter-spacing: 0.03em; }
+.kling-page .stat-divider { width: 1px; height: 36px; background: var(--card-border); }
+
+.kling-page .bookmark-bar {
+  background: rgba(12,16,32,0.92);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.kling-page .bookmark-bar::-webkit-scrollbar { display: none; }
+
+.kling-page .bookmark-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  white-space: nowrap;
+}
+
+.kling-page .bookmark-label {
+  color: var(--text3);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-right: 0.4rem;
+  flex-shrink: 0;
+}
+
+.kling-page .bookmark-chip {
+  display: inline-block;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--card-border);
+  color: var(--text2);
+  text-decoration: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.kling-page .bookmark-chip:hover {
+  background: rgba(108,71,255,0.18);
+  border-color: rgba(108,71,255,0.4);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.kling-page .bookmark-chip.active {
+  background: rgba(108,71,255,0.22);
+  border-color: rgba(108,71,255,0.5);
+  color: #c4b5fd;
+}
+
+.kling-page .main-kling {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.kling-page .section-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.kling-page .section-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.kling-page .section-header p {
+  color: var(--text2);
+  font-size: 0.92rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.kling-page .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
+}
+
+.kling-page .card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.kling-page .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.45);
+  border-color: rgba(108,71,255,0.2);
+  background: rgba(15,20,36,0.9);
+}
+
+.kling-page .card.featured {
+  border-color: rgba(108,71,255,0.2);
+  background: linear-gradient(140deg, #0f1424, #15103a);
+}
+
+.kling-page .card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.kling-page .card-badge.best { background: rgba(234,179,8,0.12); color: #fbbf24; border: 1px solid rgba(234,179,8,0.25); }
+.kling-page .card-badge.free { background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.25); }
+.kling-page .card-badge.trial { background: rgba(6,182,212,0.12); color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); }
+.kling-page .card-badge.dev { background: rgba(245,158,11,0.12); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+.kling-page .card-badge.credits { background: rgba(168,85,247,0.12); color: #c084fc; border: 1px solid rgba(168,85,247,0.25); }
+
+.kling-page .card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.kling-page .card-logo {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.kling-page .card-title-block { flex: 1; min-width: 0; }
+.kling-page .card-title-block h3 { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem; }
+
+.kling-page .model-tag {
+  display: inline-block;
+  background: rgba(108,71,255,0.12);
+  color: #a78bfa;
+  border: 1px solid rgba(108,71,255,0.2);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.kling-page .model-tag.sm { font-size: 0.6rem; padding: 0.12rem 0.4rem; }
+
+.kling-page .card-desc {
+  color: var(--text2);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.kling-page .card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.kling-page .meta-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--card-border);
+  color: var(--text2);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.kling-page .card-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+.kling-page .btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  gap: 0.3rem;
+}
+
+.kling-page .btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(108,71,255,0.3);
+}
+
+.kling-page .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(108,71,255,0.45); }
+
+.kling-page .btn-ghost {
+  background: rgba(255,255,255,0.05);
+  color: var(--text2);
+  border: 1px solid var(--card-border);
+}
+
+.kling-page .btn-ghost:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+
+.kling-page .btn-copy {
+  background: rgba(255,255,255,0.04);
+  color: var(--text3);
+  border: 1px solid var(--card-border);
+  padding: 0.45rem 0.75rem;
+}
+
+.kling-page .btn-copy:hover {
+  background: rgba(108,71,255,0.12);
+  border-color: rgba(108,71,255,0.3);
+  color: #a78bfa;
+}
+
+.kling-page .btn-copy.copied {
+  background: rgba(16,185,129,0.12);
+  border-color: rgba(16,185,129,0.3);
+  color: #34d399;
+}
+
+.kling-page .compare-section { margin-bottom: 3.5rem; }
+
+.kling-page .section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.kling-page .table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  -webkit-overflow-scrolling: touch;
+}
+
+.kling-page .compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 640px;
+}
+
+.kling-page .compare-table thead tr {
+  background: rgba(108,71,255,0.1);
+}
+
+.kling-page .compare-table th {
+  text-align: left;
+  padding: 0.85rem 1rem;
+  color: var(--text2);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.kling-page .compare-table td {
+  padding: 0.75rem 1rem;
+  color: var(--text2);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  white-space: nowrap;
+}
+
+.kling-page .compare-table tr:last-child td { border-bottom: none; }
+.kling-page .compare-table tbody tr { transition: background 0.15s; }
+.kling-page .compare-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+.kling-page .compare-table .best-row td { color: var(--text); }
+
+.kling-page .table-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.kling-page .table-link:hover { color: var(--accent); }
+
+.kling-page .safety-section {
+  background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(245,158,11,0.04));
+  border: 1px solid rgba(239,68,68,0.15);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.kling-page .safety-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
+
+.kling-page .safety-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.kling-page .safety-section p {
+  color: var(--text2);
+  font-size: 0.88rem;
+  max-width: 520px;
+  margin: 0 auto 1.2rem;
+  line-height: 1.6;
+}
+
+.kling-page .safety-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+
+.kling-page .safety-item {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+}
+
+.kling-page .safety-item.good { background: rgba(16,185,129,0.1); color: #34d399; border: 1px solid rgba(16,185,129,0.2); }
+.kling-page .safety-item.bad { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+
+.kling-page .footer {
+  text-align: center;
+  padding: 1.8rem 1.5rem;
+  border-top: 1px solid var(--card-border);
+  color: var(--text3);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+@keyframes klingFadeDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes klingFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes klingSlideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .kling-page .nav { padding: 1rem 1.2rem; }
+  .kling-page .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 260px;
+    height: 100vh;
+    background: rgba(12,16,32,0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 1.2rem;
+    border-left: 1px solid var(--card-border);
+    transition: right 0.3s ease;
+    z-index: 15;
+  }
+  .kling-page .nav-links.open { right: 0; }
+  .kling-page .nav-links a { font-size: 1rem; }
+  .kling-page .nav-toggle { display: flex; }
+  .kling-page .hero { padding: 2rem 1rem 0.5rem; }
+  .kling-page .hero-stats { gap: 1.2rem; padding: 0.7rem 1.2rem; }
+  .kling-page .stat-num { font-size: 1.3rem; }
+  .kling-page .bookmark-inner { padding: 0.6rem 1rem; }
+  .kling-page .main-kling { padding: 2rem 1rem 3rem; }
+  .kling-page .cards-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .kling-page .card { padding: 1.2rem; }
+  .kling-page .section-header h2 { font-size: 1.3rem; }
+  .kling-page .section-title { font-size: 1.2rem; }
+  .kling-page .compare-table { min-width: 520px; }
+  .kling-page .compare-table th,
+  .kling-page .compare-table td { padding: 0.65rem 0.75rem; font-size: 0.75rem; }
+  .kling-page .safety-section { padding: 1.5rem 1rem; }
+  .kling-page .card-logo { width: 42px; height: 42px; font-size: 1.1rem; }
+  .kling-page .card-title-block h3 { font-size: 0.95rem; }
+  .kling-page .hero-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+}
+
+@media (max-width: 480px) {
+  .kling-page .hero-stats { flex-direction: column; gap: 0.8rem; padding: 0.8rem 1.2rem; }
+  .kling-page .stat-divider { width: 32px; height: 1px; }
+  .kling-page .nav-links { width: 100%; border-left: none; }
+  .kling-page .compare-table { min-width: 400px; font-size: 0.7rem; }
+  .kling-page .compare-table th,
+  .kling-page .compare-table td { padding: 0.5rem 0.6rem; }
+  .kling-page .footer { font-size: 0.72rem; padding: 1.2rem 1rem; }
+  .kling-page .hero-sub { font-size: 0.9rem; }
+  .kling-page .card-actions { flex-direction: column; }
+  .kling-page .btn { justify-content: center; }
+}

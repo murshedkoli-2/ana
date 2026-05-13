@@ -1,0 +1,17 @@
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3456
+  - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 1097ms (159 modules)
+ POST /api/videos 500 in 1268ms
+ POST /api/videos 201 in 1596ms
+ GET /api/videos?status=selected 200 in 1473ms
+ ○ Compiling /dashboard/selected ...
+ ✓ Compiled /dashboard/selected in 2.8s (643 modules)
+ GET /dashboard/selected 200 in 4550ms
+ GET /dashboard/selected 200 in 57ms
+ ✓ Compiled /_not-found in 434ms (616 modules)
+ GET /dashboard/selected 404 in 613ms
