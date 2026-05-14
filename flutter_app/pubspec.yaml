@@ -1,0 +1,55 @@
+name: ana_video_booking
+description: ANA - Free Motion Control Platforms Directory - Flutter App
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.0.0
+  
+  # Database - Direct PostgreSQL connection for Android
+  postgres: ^3.5.11
+  
+  # Local Storage
+  shared_preferences: ^2.2.0
+  hive: ^2.2.0
+  hive_flutter: ^1.1.0
+  
+  # Navigation & Routing
+  go_router: ^11.0.0
+  
+  # UI & Design
+  intl: ^0.19.0
+  
+  # Share Intent - Android only
+  receive_sharing_intent: ^1.4.5
+  
+  # URL Utilities
+  url_launcher: ^6.1.0
+  
+  # Notifications & Toast
+  fluttertoast: ^8.2.0
+  
+  # Image Handling
+  cached_network_image: ^3.3.0
+  
+  # Utility
+  uuid: ^4.0.0
+  connectivity_plus: ^5.0.0
+  crypto: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
